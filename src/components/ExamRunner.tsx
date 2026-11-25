@@ -109,7 +109,7 @@ export default function ExamRunner({ examId }: { examId: number }) {
   const answered = Object.keys(answers).length;
   const elapsed = Math.round((now - startedAt) / 1000);
   const sched = dateForDay(progress.startDate, exam.scheduleDay);
-  const early = progress.startDate ? currentPlanDay(progress.startDate) < exam.scheduleDay : false;
+  const early = !exam.bonus && progress.startDate ? currentPlanDay(progress.startDate) < exam.scheduleDay : false;
   const reviewDone = [1, 2, 3].every((d) => progress.daysDone[d]);
 
   /* ---------------- INTRO ---------------- */
@@ -120,7 +120,7 @@ export default function ExamRunner({ examId }: { examId: number }) {
           ← All mock exams
         </Link>
         <div className="mt-3 text-sm font-bold text-amber-600">
-          DAY {exam.scheduleDay} · EXAM {exam.id} OF 6
+          {exam.bonus ? "EXTRA PRACTICE" : `DAY ${exam.scheduleDay}`} · EXAM {exam.id} OF {EXAMS.length}
         </div>
         <h1 className="mt-1 font-display text-4xl font-bold leading-tight">{exam.title}</h1>
         <p className="mt-2 text-lg text-slate-600">{exam.focus}</p>

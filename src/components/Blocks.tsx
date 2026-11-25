@@ -222,7 +222,7 @@ export function BlockView({ b }: { b: Block }) {
       return (
         <div className="rounded-2xl border-2 border-indigo-200 bg-white p-5">
           <Label icon="✍️" text="Quick check: retrieve it" tone="bg-indigo-100 text-indigo-800" />
-          <QuizItem q={b.q} onReveal={(c) => recordCheck(b.q.id, c)} />
+          <QuizItem key={b.q.id} q={b.q} onReveal={(c) => recordCheck(b.q.id, c)} />
         </div>
       );
     case "pitfall":

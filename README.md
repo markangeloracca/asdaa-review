@@ -40,7 +40,8 @@ A small Next.js 15 + Supabase + Tailwind CSS v4 study app covering **Lectures 9â
 2. On <https://vercel.com/new>, import the repo. The framework is auto-detected as Next.js.
 3. Add **Environment Variables** (skip these for local-only mode):
    - `NEXT_PUBLIC_SUPABASE_URL` = your Project URL
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = your anon or publishable key
+   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` = your publishable (or anon) key
+   - Or connect the **Supabase integration** in Vercel, which sets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. `next.config.mjs` maps either naming to the browser.
 4. Click **Deploy**. Copy the URL into Supabase's Site URL and Redirect URLs (step 1.3).
 
 *No GitHub?* Run `npm i -g vercel && vercel` from the project folder instead.

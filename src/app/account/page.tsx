@@ -40,8 +40,8 @@ export default function AccountPage() {
           <>
             <div className="font-semibold">Local mode</div>
             <p className="mt-1 text-slate-600">
-              Supabase isn't configured for this deployment, so everything is stored in this browser only. To enable sync, add <code className="rounded bg-slate-100 px-1">NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
-              <code className="rounded bg-slate-100 px-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> in Vercel and redeploy (see README).
+              Supabase isn't configured for this deployment, so everything is stored in this browser only. To enable sync, add <code className="rounded bg-slate-100 px-1">SUPABASE_URL</code> and{" "}
+              <code className="rounded bg-slate-100 px-1">SUPABASE_PUBLISHABLE_KEY</code> in Vercel and redeploy (see README).
             </p>
           </>
         ) : session ? (

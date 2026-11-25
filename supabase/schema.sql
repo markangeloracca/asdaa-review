@@ -12,7 +12,7 @@ create table if not exists public.progress (
 create table if not exists public.exam_attempts (
   id           text primary key,
   user_id      uuid not null references auth.users (id) on delete cascade default auth.uid(),
-  exam_id      int  not null check (exam_id between 1 and 6),
+  exam_id      int  not null check (exam_id between 1 and 7),
   mode         text not null default 'full',
   score        int  not null,
   total        int  not null,
@@ -24,6 +24,10 @@ create table if not exists public.exam_attempts (
 );
 -- Safe to re-run on an older copy of this schema
 alter table public.exam_attempts add column if not exists question_ids jsonb;
+
+-- Widen the exam id range for existing databases (Mock Exam 7 = Study Guide 2)
+alter table public.exam_attempts drop constraint if exists exam_attempts_exam_id_check;
+alter table public.exam_attempts add constraint exam_attempts_exam_id_check check (exam_id between 1 and 7);
 
 create index if not exists exam_attempts_user_idx on public.exam_attempts (user_id, exam_id, created_at desc);
 

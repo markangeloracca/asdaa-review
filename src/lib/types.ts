@@ -92,5 +92,6 @@ export interface Exam {
   focus: string;
   scheduleDay: number; // 4,5,6
   minutes: number;
+  bonus?: boolean; // extra practice, outside the Day 4–6 plan
   questions: Question[];
 }

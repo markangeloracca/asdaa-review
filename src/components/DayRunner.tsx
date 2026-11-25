@@ -167,6 +167,8 @@ export default function DayRunner({ day }: { day: number }) {
         </div>
 
         {/* Body */}
+        {/* Keyed by step so answers, revealed feedback and drafts never carry over to the next step */}
+        <div key={step.id}>
         {step.kind === "intro" && (
           <div className="space-y-5">
             <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
@@ -271,6 +273,7 @@ export default function DayRunner({ day }: { day: number }) {
             </div>
           </div>
         )}
+        </div>
       </div>
 
       {/* Bottom step nav */}

@@ -1,7 +1,8 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Normalised in next.config.mjs from SUPABASE_PUBLISHABLE_KEY / *_ANON_KEY variants.
+const key = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 
 export const supabaseEnabled = Boolean(url && key);
 
